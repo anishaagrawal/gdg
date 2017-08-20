@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery-3.2.1.min.js">
+	 $(document).ready(function(){
+	 	var my_json;
+	 	$.getJSON("dictionary.json",function(json){
+	 		my_json=json;
+	 	});
+	 }</script>
+	 <script>
+		function myfunc() {
+			var v=document.getElementById("pgg").value;
+			document.getElementById("para").innerHTML=v;
+		}
+	</script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js">
+	function splitss(){
+            var split = $('#textarea').val().split('\n');
+			var lines = [];
+			var line=[];
+			for (var i = 0; i < split.length; i++){
+    			if (split[i]) 
+    			lines.push(split[i]);
+    		}
+			for(var i=0;i<lines.length;i++){
+				if(lines[i]==my_json)
+					line.push(lines[i]);
+				else
+					line.push($('lines[i]').css("color","red"));
+
+			}
+			document.getElementById("para").innerHTML=line;
+		}
+		
+
+	</script>
+	
+</head>
+<body>
+	<h1 align="center"><b>GDG BBSR</b></h1>
+	<br><h3 align="center">spell check</h3>
+	<br>
+	<p id="para" align="center"></p>
+	<div id="input1" align="center" style="overflow-x:auto;">
+		<table>
+			<tr>
+				<td><h3>Add A New Word</h3>
+					<textarea type="text" name="pg"></textarea><br><br>
+		<button type="button" onclick="myfunc1()">Add to dictionary</button>
+				</td>
+				<td align="center">
+		<textarea type="text" name="pg" rows="15" cols="100" id="pgg"></textarea><br><br>
+		<button type="button" onclick="myfunc()">submit</button>
+	</td>
+	</tr>
+		</table>
+	</div>	
+<div id="cc" color="red"></div>
+</body>
+</html>
